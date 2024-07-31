@@ -1,6 +1,10 @@
 var i = 0;
 var titleCardName = 'Jakob Daniel Deschauer';
-var speed = 75;
+var speed = 50;
+
+function start(){
+    typeTitleCardName();
+}
 
 function typeTitleCardName(){
     if (i < titleCardName.length){
