@@ -1,19 +1,24 @@
 var i = 0;
 var titleCardName = 'Jakob Daniel Deschauer';
 var speed = 50;
+let root = document.documentElement;
+
 
 function start(){
     console.log("hallo");
-    typeTitleCardName();
-    checkFadeInElements(); // Initial check for elements in view
+    typeWriter("TitleCardName", titleCardName);
+    checkFadeInElements();
     window.addEventListener('scroll', checkFadeInElements);
 }
 
-function typeTitleCardName(){
-    if (i < titleCardName.length){
-        document.getElementById("TitleCardName").innerHTML += titleCardName.charAt(i);
+function typeWriter(elementID, text){
+    if (i < text.length){
+        document.getElementById(elementID).innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeTitleCardName, speed);
+        setTimeout(typeWriter, speed, elementID, text);
+    } else {
+        root.style.setProperty('--opacity', 1);
+        root.style.setProperty('--offset', "0px");
     }
 }
 
